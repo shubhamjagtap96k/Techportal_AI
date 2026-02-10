@@ -96,15 +96,18 @@ const categories = [
                 resources: {
                     node: [
                         { name: 'Amazon Q', url: 'https://aws.amazon.com/q/', type: 'ai', description: 'AI assistant for software development and upgrading Node versions.' },
+                        { name: 'Tabnine', url: 'https://www.tabnine.com/', type: 'ai', description: 'AI assistant for faster coding.' },
                         { name: 'GitHub Copilot', url: 'https://github.com/features/copilot', type: 'ai', description: 'Excellent for writing node.js APIs and tests.' },
                         { name: 'Node.js Docs', url: 'https://nodejs.org/en/docs/', type: 'learn', description: 'Official Docs.' }
                     ],
                     python: [
                         { name: 'Cursor', url: 'https://cursor.sh/', type: 'ai', description: 'AI editor that understands Python contexts deeply.' },
                         { name: 'Codeium', url: 'https://codeium.com/', type: 'ai', description: 'Free AI code completion tool for Python.' },
+                        { name: 'Tabnine', url: 'https://www.tabnine.com/', type: 'ai', description: 'AI assistant that speeds up delivery and keeps code safe.' },
                         { name: 'Python.org', url: 'https://www.python.org/', type: 'learn', description: 'Official Home.' }
                     ],
                     java: [
+                        { name: 'Diffblue Cover', url: 'https://www.diffblue.com/', type: 'ai', description: 'AI that automatically writes unit tests for Java.' },
                         { name: 'IntelliJ AI Assistant', url: 'https://www.jetbrains.com/ai/', type: 'ai', description: 'Integrated AI for Java development.' },
                         { name: 'Spring modules', url: 'https://spring.io/projects/spring-ai', type: 'tool', description: 'Spring AI - Application Framework for AI Engineering.' }
                     ],
@@ -238,6 +241,115 @@ const categories = [
                         { name: 'Galileo AI', url: 'https://www.usegalileo.ai/', type: 'ai', description: 'Generative AI for Interface Design.' },
                         { name: 'Uizard', url: 'https://uizard.io/', type: 'ai', description: 'Design wireframes, mockups, and prototypes in minutes with AI.' },
                         { name: 'Figma (with AI plugins)', url: 'https://www.figma.com/', type: 'tool', description: 'Industry standard design tool.' }
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        id: 'mobile',
+        name: 'Mobile Development',
+        icon: '📱',
+        description: 'Building apps for iOS and Android.',
+        subcategories: [
+            {
+                id: 'cross_platform',
+                name: 'Cross Platform',
+                questions: [
+                    {
+                        id: 'mobile_tech',
+                        text: 'Choose your framework:',
+                        options: [
+                            { label: 'React Native', value: 'react_native' },
+                            { label: 'Flutter', value: 'flutter' }
+                        ]
+                    }
+                ],
+                resources: {
+                    react_native: [
+                        { name: 'Expo', url: 'https://expo.dev/', type: 'tool', description: 'Make any app. Run it everywhere.' },
+                        { name: 'React Native Docs', url: 'https://reactnative.dev/', type: 'learn', description: 'Learn logic once, write everywhere.' },
+                        { name: 'Morflax', url: 'https://morflax.com/', type: 'ai', description: '3D device mockups generator.' }
+                    ],
+                    flutter: [
+                        { name: 'FlutterFlow', url: 'https://flutterflow.io/', type: 'ai', description: 'Build functional apps with visual builder and AI.' },
+                        { name: 'Flutter Docs', url: 'https://flutter.dev/', type: 'learn', description: 'Google\'s UI toolkit for building beautiful apps.' }
+                    ]
+                }
+            },
+            {
+                id: 'native',
+                name: 'Native Development',
+                questions: [
+                    {
+                        id: 'native_os',
+                        text: 'Which OS?',
+                        options: [
+                            { label: 'iOS (Swift)', value: 'ios' },
+                            { label: 'Android (Kotlin)', value: 'android' }
+                        ]
+                    }
+                ],
+                resources: {
+                    ios: [
+                        { name: 'SwiftUI', url: 'https://developer.apple.com/xcode/swiftui/', type: 'learn', description: 'Build apps across all Apple platforms.' },
+                        { name: 'Xcode', url: 'https://developer.apple.com/xcode/', type: 'tool', description: 'Apple\'s integrated development environment.' }
+                    ],
+                    android: [
+                        { name: 'Android Studio', url: 'https://developer.android.com/studio', type: 'tool', description: 'The official IDE for Android.' },
+                        { name: 'Studio Bot', url: 'https://developer.android.com/studio/preview/studio-bot', type: 'ai', description: 'AI companion for Android development.' }
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        id: 'devops',
+        name: 'DevOps & CI/CD',
+        icon: '🚀',
+        description: 'Automating software delivery.',
+        subcategories: [
+            {
+                id: 'automation',
+                name: 'Automation Tools',
+                questions: [
+                    {
+                        id: 'devops_tool',
+                        text: 'What do you need?',
+                        options: [
+                            { label: 'Containers', value: 'containers' },
+                            { label: 'CI/CD Pipelines', value: 'cicd' }
+                        ]
+                    }
+                ],
+                resources: {
+                    containers: [
+                        { name: 'Docker', url: 'https://www.docker.com/', type: 'tool', description: 'OS-level virtualization.' },
+                        { name: 'Kubernetes', url: 'https://kubernetes.io/', type: 'tool', description: 'Container orchestration.' }
+                    ],
+                    cicd: [
+                        { name: 'GitHub Actions', url: 'https://github.com/features/actions', type: 'tool', description: 'Automate your workflow from idea to production.' },
+                        { name: 'CircleCI', url: 'https://circleci.com/', type: 'tool', description: 'Continuous integration and delivery platform.' }
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        id: 'security',
+        name: 'Cybersecurity',
+        icon: '🛡️',
+        description: 'Protecting systems and data.',
+        subcategories: [
+            {
+                id: 'sec_tools',
+                name: 'Security Tools',
+                questions: [],
+                resources: {
+                    default: [
+                        { name: 'Snyk', url: 'https://snyk.io/', type: 'ai', description: 'Developer security platform. Fix vulnerabilities with AI.' },
+                        { name: 'OWASP', url: 'https://owasp.org/', type: 'learn', description: 'Open Web Application Security Project.' },
+                        { name: 'Burp Suite', url: 'https://portswigger.net/burp', type: 'tool', description: 'Application security testing software.' }
                     ]
                 }
             }

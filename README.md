@@ -9,8 +9,9 @@ AI TechPortal is a modern, single-page application designed to help developers n
 
 ## ✨ Features
 
-- ** centralized Skill Navigation**: Browse 6 core domains: Frontend, Backend, Databases, Cloud & DevOps, AI/ML, and UI/UX.
+- ** centralized Skill Navigation**: Browse 9 core domains: Frontend, Backend, Databases, Cloud & DevOps, AI/ML, UI/UX, Mobile, and Security.
 - **🎯 Interactive Drill-Down**: Answer simple questions (e.g., "SQL or NoSQL?") to get tailored recommendations.
+- **🌌 Antigravity Design**: A futuristic, weightless interface where elements float and react elastically to your touch.
 - **🤖 AI-First Recommendations**: Prioritizes modern AI tools like **Vercel v0**, **GitHub Copilot**, **Amazon Q**, and **Cursor** to help you build faster.
 - **⚡ Zero Setup**: Built with pure HTML, CSS, and JavaScript. No build steps, no npm install required.
 - **📱 Responsive Design**: Fully responsive UI with a sleek dark mode aesthetic.

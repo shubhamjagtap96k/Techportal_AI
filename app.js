@@ -25,6 +25,20 @@ function renderCategories() {
             <h2 class="category-title">${category.name}</h2>
             <p class="category-desc">${category.description}</p>
         `;
+
+        // Random float delay for antigravity effect
+        const randomDelay = Math.random() * 5; // 0 to 5 seconds
+        card.style.setProperty('--float-delay', `-${randomDelay}s`);
+
+        // Mouse tracking for glow effect
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            card.style.setProperty('--mouse-x', `${x}px`);
+            card.style.setProperty('--mouse-y', `${y}px`);
+        });
+
         card.addEventListener('click', () => openCategory(category));
         categoryGrid.appendChild(card);
     });
