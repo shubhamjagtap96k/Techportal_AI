@@ -354,5 +354,62 @@ const categories = [
                 }
             }
         ]
+    },
+    {
+        id: 'automation_agents',
+        name: 'Automation Agents',
+        icon: '🦾',
+        description: 'Autonomous AI agents and workflow automation.',
+        subcategories: [
+            {
+                id: 'autonomous',
+                name: 'Autonomous Agents',
+                questions: [
+                    {
+                        id: 'agent_pref',
+                        text: 'What kind of agent?',
+                        options: [
+                            { label: 'Browser-based', value: 'browser' },
+                            { label: 'Terminal/Local', value: 'local' }
+                        ]
+                    }
+                ],
+                resources: {
+                    browser: [
+                        { name: 'AgentGPT', url: 'https://agentgpt.reworkd.ai/', type: 'ai', description: 'Assemble and deploy autonomous AI agents in the browser.' },
+                        { name: 'Cognosys', url: 'https://www.cognosys.ai/', type: 'ai', description: 'Web-based AI agent to automate complex tasks.' }
+                    ],
+                    local: [
+                        { name: 'AutoGPT', url: 'https://github.com/Significant-Gravitas/Auto-GPT', type: 'ai', description: 'An experimental open-source attempt to make GPT-4 fully autonomous.' },
+                        { name: 'BabyAGI', url: 'https://github.com/yoheinakajima/babyagi', type: 'ai', description: 'Task-driven autonomous agent.' },
+                        { name: 'SuperAGI', url: 'https://superagi.com/', type: 'ai', description: 'Open-source autonomous AI agent framework.' }
+                    ]
+                }
+            },
+            {
+                id: 'workflow',
+                name: 'Workflow Automation',
+                questions: [
+                    {
+                        id: 'automation_type',
+                        text: 'Automation preference:',
+                        options: [
+                            { label: 'Visual / No-Code (Free Tier)', value: 'visual' },
+                            { label: 'Open Source / Self-Hosted', value: 'opensource' }
+                        ]
+                    }
+                ],
+                resources: {
+                    visual: [
+                        { name: 'Zapier', url: 'https://zapier.com/', type: 'tool', description: 'Connect apps and automate workflows (Free tier available).' },
+                        { name: 'Make', url: 'https://www.make.com/', type: 'tool', description: 'Visual platform to automate tasks (Generous free tier).' }
+                    ],
+                    opensource: [
+                        { name: 'n8n', url: 'https://n8n.io/', type: 'tool', description: 'Fair-code workflow automation tool. Free to self-host.' },
+                        { name: 'Activepieces', url: 'https://www.activepieces.com/', type: 'tool', description: 'Open source no-code business automation.' }
+                    ]
+                }
+            }
+        ]
     }
 ];
