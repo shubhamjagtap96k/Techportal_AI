@@ -45,7 +45,7 @@ Techportal_AI/
 
 ## 🤝 Contributing
 
-This project is designed to be easily extensible.
+This project is designed to be easily extensible. and managable
 - To **add a new category**: Edit `data.js` and add a new object to the `categories` array.
 - To **add new resources**: Locate the relevant subcategory in `data.js` and append to the `resources` object.
 
