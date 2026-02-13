@@ -52,3 +52,9 @@ This project is designed to be easily extensible. and managable
 ## 📄 License
 
 Open Source. Feel free to use and modify for your own learning and development journey.
+
+
+
+### ⏳ Last Updated
+`This README was last updated automatically on: {{date}}`
+
