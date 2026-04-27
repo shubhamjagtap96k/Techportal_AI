@@ -223,6 +223,81 @@ function setupEventListeners() {
             }
         });
     }
+
+    // Auth Modal logic
+    const loginNavBtn = document.getElementById('login-nav-btn');
+    const signupNavBtn = document.getElementById('signup-nav-btn');
+    const authModalOverlay = document.getElementById('auth-modal-overlay');
+    const closeAuthModalBtn = document.getElementById('close-auth-modal');
+    const authTabs = document.querySelectorAll('.auth-tab');
+    const authForms = document.querySelectorAll('.auth-form');
+
+    function openAuthModal(tabTarget) {
+        if (!authModalOverlay) return;
+        authModalOverlay.classList.add('active');
+        
+        // Switch to the requested tab
+        authTabs.forEach(tab => {
+            if (tab.getAttribute('data-target') === tabTarget) {
+                tab.classList.add('active');
+            } else {
+                tab.classList.remove('active');
+            }
+        });
+
+        authForms.forEach(form => {
+            if (form.id === tabTarget) {
+                form.classList.add('active');
+            } else {
+                form.classList.remove('active');
+            }
+        });
+    }
+
+    if (loginNavBtn) {
+        loginNavBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            openAuthModal('login-form');
+        });
+    }
+
+    if (signupNavBtn) {
+        signupNavBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            openAuthModal('signup-form');
+        });
+    }
+
+    if (closeAuthModalBtn) {
+        closeAuthModalBtn.addEventListener('click', () => {
+            authModalOverlay.classList.remove('active');
+        });
+    }
+
+    if (authModalOverlay) {
+        authModalOverlay.addEventListener('click', (e) => {
+            if (e.target === authModalOverlay) {
+                authModalOverlay.classList.remove('active');
+            }
+        });
+    }
+
+    authTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const target = tab.getAttribute('data-target');
+            
+            authTabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+
+            authForms.forEach(form => {
+                if (form.id === target) {
+                    form.classList.add('active');
+                } else {
+                    form.classList.remove('active');
+                }
+            });
+        });
+    });
 }
 
 // Initialize

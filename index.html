@@ -38,8 +38,8 @@
             <a href="#" class="pro-link"><span class="bolt">⚡</span> Upgrade to Pro</a>
         </div>
         <div class="nav-right">
-            <a href="#" class="login-link">Login</a>
-            <a href="#" class="signup-btn">Sign Up</a>
+            <a href="#" id="login-nav-btn" class="login-link">Login</a>
+            <a href="#" id="signup-nav-btn" class="signup-btn">Sign Up</a>
         </div>
     </nav>
 
@@ -140,6 +140,67 @@
                     </ul>
                     <button class="pricing-btn secondary">Contact Sales</button>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Auth Modal -->
+    <div id="auth-modal-overlay" class="modal-overlay">
+        <div class="modal-content auth-modal-content">
+            <button id="close-auth-modal" class="close-btn">&times;</button>
+            <div class="auth-container">
+                <div class="auth-tabs">
+                    <button class="auth-tab active" data-target="login-form">Login</button>
+                    <button class="auth-tab" data-target="signup-form">Sign Up</button>
+                </div>
+                
+                <form id="login-form" class="auth-form active">
+                    <div class="form-group">
+                        <label for="login-email">Email</label>
+                        <input type="email" id="login-email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Password</label>
+                        <input type="password" id="login-password" placeholder="Enter your password" required>
+                    </div>
+                    <div class="form-options">
+                        <label class="remember-me">
+                            <input type="checkbox"> Remember me
+                        </label>
+                        <a href="#" class="forgot-password">Forgot Password?</a>
+                    </div>
+                    <button type="submit" class="auth-submit-btn">Login</button>
+                    <div class="auth-social">
+                        <p>Or continue with</p>
+                        <div class="social-btns">
+                            <button type="button" class="social-btn">Google</button>
+                            <button type="button" class="social-btn">GitHub</button>
+                        </div>
+                    </div>
+                </form>
+
+                <form id="signup-form" class="auth-form">
+                    <div class="form-group">
+                        <label for="signup-name">Full Name</label>
+                        <input type="text" id="signup-name" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-email">Email</label>
+                        <input type="email" id="signup-email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-password">Password</label>
+                        <input type="password" id="signup-password" placeholder="Create a password" required>
+                    </div>
+                    <button type="submit" class="auth-submit-btn">Sign Up</button>
+                    <div class="auth-social">
+                        <p>Or sign up with</p>
+                        <div class="social-btns">
+                            <button type="button" class="social-btn">Google</button>
+                            <button type="button" class="social-btn">GitHub</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
