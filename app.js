@@ -9,11 +9,7 @@ const closeModalBtn = document.getElementById('close-modal');
 let currentCategory = null;
 let currentSubcategory = null;
 
-// Initialize
-function init() {
-    renderCategories();
-    setupEventListeners();
-}
+// Initialize function declared at the bottom
 
 function renderCategories() {
     categoryGrid.innerHTML = '';
@@ -156,6 +152,29 @@ function showResources(subcategory, filterKey) {
     });
 }
 
+// Side Menu elements
+const menuBtn = document.querySelector('.menu-btn');
+const sideMenu = document.getElementById('side-menu');
+const sideMenuOverlay = document.getElementById('side-menu-overlay');
+const closeSideMenuBtn = document.getElementById('close-side-menu');
+
+function setupSideMenu() {
+    if(menuBtn && sideMenu && sideMenuOverlay && closeSideMenuBtn) {
+        menuBtn.addEventListener('click', toggleSideMenu);
+        closeSideMenuBtn.addEventListener('click', toggleSideMenu);
+        sideMenuOverlay.addEventListener('click', (e) => {
+            if (e.target === sideMenuOverlay) {
+                toggleSideMenu();
+            }
+        });
+    }
+}
+
+function toggleSideMenu() {
+    sideMenu.classList.toggle('active');
+    sideMenuOverlay.classList.toggle('active');
+}
+
 function setupEventListeners() {
     closeModalBtn.addEventListener('click', () => {
         modalOverlay.classList.remove('active');
@@ -169,6 +188,48 @@ function setupEventListeners() {
             currentCategory = null;
         }
     });
+
+    // Dropdown links setup
+    const dropdownLinks = document.querySelectorAll('.dropdown-link');
+    dropdownLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const categoryId = link.getAttribute('data-id');
+            const category = categories.find(c => c.id === categoryId);
+            if (category) {
+                openCategory(category);
+            }
+        });
+    });
+
+    // Pricing Modal logic
+    const proLink = document.querySelector('.pro-link');
+    const proModalOverlay = document.getElementById('pro-modal-overlay');
+    const closeProModalBtn = document.getElementById('close-pro-modal');
+
+    if (proLink && proModalOverlay && closeProModalBtn) {
+        proLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            proModalOverlay.classList.add('active');
+        });
+
+        closeProModalBtn.addEventListener('click', () => {
+            proModalOverlay.classList.remove('active');
+        });
+
+        proModalOverlay.addEventListener('click', (e) => {
+            if (e.target === proModalOverlay) {
+                proModalOverlay.classList.remove('active');
+            }
+        });
+    }
+}
+
+// Initialize
+function init() {
+    renderCategories();
+    setupEventListeners();
+    setupSideMenu();
 }
 
 init();

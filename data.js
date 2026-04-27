@@ -411,5 +411,233 @@ const categories = [
                 }
             }
         ]
+    },
+    {
+        id: 'data_science',
+        name: 'Data Science',
+        icon: '📊',
+        description: 'Analyse data and build insights.',
+        subcategories: [
+            {
+                id: 'ds_tools',
+                name: 'DS Tooling',
+                questions: [
+                    {
+                        id: 'ds_focus',
+                        text: 'What is your main focus?',
+                        options: [
+                            { label: 'Data Analysis', value: 'analysis' },
+                            { label: 'Visualisation', value: 'viz' },
+                            { label: 'Big Data / ETL', value: 'etl' }
+                        ]
+                    }
+                ],
+                resources: {
+                    analysis: [
+                        { name: 'Jupyter AI', url: 'https://jupyter-ai.readthedocs.io/', type: 'ai', description: 'AI magic commands inside Jupyter notebooks.' },
+                        { name: 'Pandas', url: 'https://pandas.pydata.org/', type: 'tool', description: 'Data analysis and manipulation library for Python.' },
+                        { name: 'Kaggle', url: 'https://www.kaggle.com/', type: 'community', description: 'Datasets, notebooks, and competitions.' }
+                    ],
+                    viz: [
+                        { name: 'ChartGPT', url: 'https://www.chartgpt.dev/', type: 'ai', description: 'Describe a chart in plain English and get it instantly.' },
+                        { name: 'Plotly', url: 'https://plotly.com/', type: 'tool', description: 'Interactive graphing library for Python and JS.' }
+                    ],
+                    etl: [
+                        { name: 'dbt', url: 'https://www.getdbt.com/', type: 'tool', description: 'Transform data in your warehouse using SQL.' },
+                        { name: 'Apache Spark', url: 'https://spark.apache.org/', type: 'tool', description: 'Unified analytics engine for big data.' }
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        id: 'game_dev',
+        name: 'Game Development',
+        icon: '🎮',
+        description: 'Build 2D and 3D gaming experiences.',
+        subcategories: [
+            {
+                id: 'game_engine',
+                name: 'Game Engines',
+                questions: [
+                    {
+                        id: 'engine_choice',
+                        text: 'Which engine are you using?',
+                        options: [
+                            { label: 'Unity', value: 'unity' },
+                            { label: 'Unreal Engine', value: 'unreal' },
+                            { label: 'Godot', value: 'godot' }
+                        ]
+                    }
+                ],
+                resources: {
+                    unity: [
+                        { name: 'Unity Muse', url: 'https://unity.com/products/muse', type: 'ai', description: 'AI-powered creation inside the Unity Editor.' },
+                        { name: 'Unity Docs', url: 'https://docs.unity3d.com/', type: 'learn', description: 'Official Unity documentation.' }
+                    ],
+                    unreal: [
+                        { name: 'Unreal Engine', url: 'https://www.unrealengine.com/', type: 'tool', description: 'Powerful 3D creation suite from Epic Games.' },
+                        { name: 'Suno (Audio)', url: 'https://www.suno.ai/', type: 'ai', description: 'Generate game music and soundscapes with AI.' }
+                    ],
+                    godot: [
+                        { name: 'Godot Engine', url: 'https://godotengine.org/', type: 'tool', description: 'Free, open-source game engine. Great for 2D.' },
+                        { name: 'GitHub Copilot', url: 'https://github.com/features/copilot', type: 'ai', description: 'Helps write GDScript logic faster.' }
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        id: 'blockchain',
+        name: 'Blockchain & Web3',
+        icon: '⛓️',
+        description: 'Decentralised apps and smart contracts.',
+        subcategories: [
+            {
+                id: 'web3_tools',
+                name: 'Web3 Tooling',
+                questions: [
+                    {
+                        id: 'web3_stack',
+                        text: 'What are you building?',
+                        options: [
+                            { label: 'Smart Contracts', value: 'contracts' },
+                            { label: 'DApps / Frontend', value: 'dapps' }
+                        ]
+                    }
+                ],
+                resources: {
+                    contracts: [
+                        { name: 'Hardhat', url: 'https://hardhat.org/', type: 'tool', description: 'Ethereum development environment.' },
+                        { name: 'OpenZeppelin', url: 'https://openzeppelin.com/', type: 'tool', description: 'Secure smart contract library.' },
+                        { name: 'Alchemy', url: 'https://www.alchemy.com/', type: 'tool', description: 'Web3 development platform and node provider.' }
+                    ],
+                    dapps: [
+                        { name: 'RainbowKit', url: 'https://rainbowkit.com/', type: 'tool', description: 'Best way to connect a wallet to your DApp.' },
+                        { name: 'Wagmi', url: 'https://wagmi.sh/', type: 'tool', description: 'React hooks for Ethereum.' }
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        id: 'testing_qa',
+        name: 'Testing & QA',
+        icon: '🧪',
+        description: 'Ensure quality with automated testing.',
+        subcategories: [
+            {
+                id: 'test_type',
+                name: 'Testing Type',
+                questions: [
+                    {
+                        id: 'test_choice',
+                        text: 'What kind of testing?',
+                        options: [
+                            { label: 'Unit / Integration', value: 'unit' },
+                            { label: 'E2E / Browser', value: 'e2e' },
+                            { label: 'Performance', value: 'perf' }
+                        ]
+                    }
+                ],
+                resources: {
+                    unit: [
+                        { name: 'Vitest', url: 'https://vitest.dev/', type: 'tool', description: 'Blazing fast unit test framework.' },
+                        { name: 'Jest', url: 'https://jestjs.io/', type: 'tool', description: 'Delightful JavaScript testing.' },
+                        { name: 'Diffblue Cover', url: 'https://www.diffblue.com/', type: 'ai', description: 'AI that auto-generates unit tests for Java.' }
+                    ],
+                    e2e: [
+                        { name: 'Playwright', url: 'https://playwright.dev/', type: 'tool', description: 'Reliable end-to-end testing for modern web apps.' },
+                        { name: 'Cypress', url: 'https://www.cypress.io/', type: 'tool', description: 'Fast, easy and reliable testing for anything that runs in a browser.' }
+                    ],
+                    perf: [
+                        { name: 'k6', url: 'https://k6.io/', type: 'tool', description: 'Open-source performance testing tool.' },
+                        { name: 'Lighthouse', url: 'https://developer.chrome.com/docs/lighthouse/', type: 'tool', description: 'Automated auditing for performance and quality.' }
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        id: 'language_models',
+        name: 'Language Models',
+        icon: '💬',
+        description: 'Advanced LLMs for text generation and reasoning.',
+        subcategories: [
+            {
+                id: 'llm_providers',
+                name: 'LLM Providers',
+                questions: [],
+                resources: {
+                    default: [
+                        { name: 'OpenAI GPT-4', url: 'https://openai.com/', type: 'ai', description: 'Industry leading language model.' },
+                        { name: 'Anthropic Claude 3', url: 'https://www.anthropic.com/', type: 'ai', description: 'Advanced reasoning and large context windows.' },
+                        { name: 'Google Gemini', url: 'https://gemini.google.com/', type: 'ai', description: 'Multimodal AI model by Google.' },
+                        { name: 'Meta Llama 3', url: 'https://llama.meta.com/', type: 'ai', description: 'Open-source state-of-the-art model.' }
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        id: 'image_gen',
+        name: 'Image Generation',
+        icon: '🖼️',
+        description: 'Generate and edit images using AI.',
+        subcategories: [
+            {
+                id: 'image_tools',
+                name: 'Image Tools',
+                questions: [],
+                resources: {
+                    default: [
+                        { name: 'Midjourney', url: 'https://www.midjourney.com/', type: 'ai', description: 'High-quality artistic AI image generation.' },
+                        { name: 'DALL-E 3', url: 'https://openai.com/dall-e-3', type: 'ai', description: 'Image generation integrated with ChatGPT.' },
+                        { name: 'Stable Diffusion', url: 'https://stability.ai/', type: 'tool', description: 'Open-source image generation model.' }
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        id: 'voice_audio',
+        name: 'Voice & Audio',
+        icon: '🎵',
+        description: 'Text-to-speech, transcription, and music generation.',
+        subcategories: [
+            {
+                id: 'audio_tools',
+                name: 'Audio AI Tools',
+                questions: [],
+                resources: {
+                    default: [
+                        { name: 'ElevenLabs', url: 'https://elevenlabs.io/', type: 'ai', description: 'Highly realistic text-to-speech and voice cloning.' },
+                        { name: 'Suno AI', url: 'https://www.suno.ai/', type: 'ai', description: 'Generate songs and music from text descriptions.' },
+                        { name: 'OpenAI Whisper', url: 'https://github.com/openai/whisper', type: 'tool', description: 'Robust, open-source speech recognition.' }
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        id: 'code_assistants',
+        name: 'Code Assistants',
+        icon: '🧑‍💻',
+        description: 'AI pair programmers and coding tools.',
+        subcategories: [
+            {
+                id: 'coding_ai',
+                name: 'AI Coding Tools',
+                questions: [],
+                resources: {
+                    default: [
+                        { name: 'GitHub Copilot', url: 'https://github.com/features/copilot', type: 'ai', description: 'AI pair programmer tightly integrated with IDEs.' },
+                        { name: 'Cursor', url: 'https://cursor.sh/', type: 'ai', description: 'The AI-first code editor and IDE.' },
+                        { name: 'Codeium', url: 'https://codeium.com/', type: 'ai', description: 'Free AI code completion and chat.' },
+                        { name: 'Amazon Q', url: 'https://aws.amazon.com/q/developer/', type: 'ai', description: 'AI assistant for software development.' }
+                    ]
+                }
+            }
+        ]
     }
 ];
