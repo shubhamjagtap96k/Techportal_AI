@@ -225,12 +225,13 @@ function setupEventListeners() {
     }
 
     // Auth Modal logic
-    const loginNavBtn = document.getElementById('login-nav-btn');
-    const signupNavBtn = document.getElementById('signup-nav-btn');
     const authModalOverlay = document.getElementById('auth-modal-overlay');
     const closeAuthModalBtn = document.getElementById('close-auth-modal');
     const authTabs = document.querySelectorAll('.auth-tab');
     const authForms = document.querySelectorAll('.auth-form');
+    const signupForm = document.getElementById('signup-form');
+    const loginForm = document.getElementById('login-form');
+    const navRight = document.querySelector('.nav-right');
 
     function openAuthModal(tabTarget) {
         if (!authModalOverlay) return;
@@ -254,17 +255,92 @@ function setupEventListeners() {
         });
     }
 
-    if (loginNavBtn) {
-        loginNavBtn.addEventListener('click', (e) => {
+    // Function to handle authenticated state UI
+    function updateAuthUI() {
+        if (!navRight) return;
+        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        
+        if (currentUser) {
+            navRight.innerHTML = `
+                <span class="user-greeting" style="color: var(--text-primary); margin-right: 15px; font-weight: 600;">Welcome, ${currentUser.name}!</span>
+                <a href="#" id="logout-btn" class="signup-btn">Logout</a>
+            `;
+            document.getElementById('logout-btn').addEventListener('click', (e) => {
+                e.preventDefault();
+                localStorage.removeItem('currentUser');
+                updateAuthUI();
+            });
+        } else {
+            navRight.innerHTML = `
+                <a href="#" id="login-nav-btn" class="login-link">Login</a>
+                <a href="#" id="signup-nav-btn" class="signup-btn">Sign Up</a>
+            `;
+            document.getElementById('login-nav-btn').addEventListener('click', (e) => {
+                e.preventDefault();
+                openAuthModal('login-form');
+            });
+            document.getElementById('signup-nav-btn').addEventListener('click', (e) => {
+                e.preventDefault();
+                openAuthModal('signup-form');
+            });
+        }
+    }
+
+    // Initialize Auth UI
+    updateAuthUI();
+
+    // Sign up form handler
+    if (signupForm) {
+        signupForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            openAuthModal('login-form');
+            const name = document.getElementById('signup-name').value;
+            const email = document.getElementById('signup-email').value;
+            const password = document.getElementById('signup-password').value;
+
+            if (name && email && password) {
+                const users = JSON.parse(localStorage.getItem('techportal_users') || '[]');
+                
+                // Check if user already exists
+                if (users.find(u => u.email === email)) {
+                    alert('User with this email already exists!');
+                    return;
+                }
+
+                // Create new user and save
+                const newUser = { name, email, password };
+                users.push(newUser);
+                localStorage.setItem('techportal_users', JSON.stringify(users));
+                
+                // Auto-login after sign up
+                localStorage.setItem('currentUser', JSON.stringify(newUser));
+                
+                alert('Sign up successful!');
+                signupForm.reset();
+                authModalOverlay.classList.remove('active');
+                updateAuthUI();
+            }
         });
     }
 
-    if (signupNavBtn) {
-        signupNavBtn.addEventListener('click', (e) => {
+    // Login form handler
+    if (loginForm) {
+        loginForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            openAuthModal('signup-form');
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+
+            const users = JSON.parse(localStorage.getItem('techportal_users') || '[]');
+            const user = users.find(u => u.email === email && u.password === password);
+
+            if (user) {
+                localStorage.setItem('currentUser', JSON.stringify(user));
+                alert('Login successful!');
+                loginForm.reset();
+                authModalOverlay.classList.remove('active');
+                updateAuthUI();
+            } else {
+                alert('Invalid email or password!');
+            }
         });
     }
 
